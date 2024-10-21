@@ -1,45 +1,56 @@
-# A. The Spring Breaks 'R' Us Travel Service  
-The SBRU information system includes four subsystems: Resort relations, Student booking, Accounting and finance, and Social networking. 
-The first three are purely Web applications, so access to those occurs through an Internet connection to a Web server at the SBRU home office. 
-However, the Social networking subsystem has built-in chat capabilities. It relies on Internet access as students compare notes before they book their travel reservations, and as they chat while traveling. 
-The system requires a wireless network at each resort to function properly. 
-SBRU isn't responsible for installing or maintaining the resort wireless network; they only plan to provide some design specifications and guidelines for each resort. 
-The resort will be responsible for connecting to the Internet and providing a secure wireless environment for the students. 
-
-1. For which subsystem(s) is(are) integrity, and security controls most important? Why?
-2. What data should be encrypted during transmission through resort wireless networks to SBRU systems? Does your answer change if students interact with SBRU systems using a cellphone (directly or as a cellular modem)?
-
-# B. On the Spot Courier Services 
-Bill Wiley wants technological capabilities for servicing his customers. 
-One of the problems that Bill has is that his company is very small, so he cannot afford to develop any special-purpose equipment or even sophisticated software.
-
-Given this limitation, Bill's need for advanced technological capabilities comes at an opportune time. 
-Equipment manufacturers are developing equipment with advanced telecommunications capabilities, and freelance software developers are producing software applications – many of which provide the capabilities that Bill needs. 
-The one requirement is that because this will be a live production system, it needs to be reliable, stable, error-free, dependable, and maintainable. 
-
-Here are some of the required capabilities of the new system. 
-
-Customers 
-- Customers can request package pickup via the Internet.
-- Customers can check the status of package via the Internet.
-- Customers can print mailing labels at their offices.
-
-Drivers 
-- Drivers can view their schedules via a portable digital device while on their routes.
-- Drivers can update the status of packages while on their routes.
-- Drivers can allow customers to "sign" for packages that are delivered.
-- The system "knows" where the driver is on his route and can send updates in real-time.
-- Drivers can accept payments and record them on the system. Bill Wiley (management)
-- Bill can record package pickups from warehouse
-- Bill can schedule delivery/pickup runs.
-- Bill can do accounting, billing, etc.
-- Bill can access the company network from his home.
-
-Given these requirements, do the following: 
-1. What kind of fraud is possible in this scenario? By the customer? By the truck driver? By collaboration between system users? What steps should Bill take to minimize the opportunity for fraud?
-2. What kind of access controls should be put in place? For the customer? (Notice the customer has no financial transactions. Would you change your answer if the customer could also make payments online?
-For the truck drivers? For Bill? Are typical userID and password sufficient for all three, or would you require more or less for each?
+# 1. Possible Types of Fraud
+**By the Customer:**
+- False Pickup Requests: Customers might request pickups for packages they never intend to send, leading to wasted resources.
+- Package Misrepresentation: Customers could misrepresent the contents of packages to avoid higher shipping fees or to commit fraud (e.g., shipping illegal items).
+- Chargeback Fraud: If customers were to make payments online, they might claim they did not receive a package to initiate a chargeback.
 
 
-## Reference
-Satzinger, J., Jackson, and R., Burd, S. (2015). Systems Analysis and Design in a Changing World – Course Technology. USA. Cengage Learning. 
+**By the Truck Driver:**
+- Theft of Packages: Drivers could steal packages during transit or delivery.
+- Falsifying Delivery Records: Drivers might mark packages as delivered when they were not, potentially keeping the items for personal gain.
+- Collusion with Customers: Drivers could collaborate with customers to falsely report deliveries or pickups for shared profits.
+
+
+**By Collaboration Between System Users:**
+- Collusion Between Drivers and Customers: Drivers and customers could work together to create false pickup requests or delivery confirmations, splitting the profits from stolen or misrepresented packages.
+- Manipulation of Tracking Information: Users could manipulate the system to alter tracking information, making it appear as though packages were delivered or picked up when they were not.
+
+
+**Steps to Minimize Fraud Opportunities:**
+- Verification Processes: Implement verification for pickup requests, such as requiring customers to confirm their identity through a secure method (e.g., email or SMS verification).
+- Tracking and Auditing: Use GPS tracking for drivers and maintain logs of all package statuses and updates. Regular audits of these logs can help identify discrepancies.
+- Training and Awareness: Train drivers and staff on recognizing fraudulent behavior and the importance of reporting suspicious activities.
+- Secure Payment Systems: If payments are introduced, use secure payment gateways with fraud detection mechanisms.
+
+
+# 2. Access Controls
+**For the Customer:**
+- Current Access Control: Since customers currently do not engage in financial transactions, basic access controls (e.g., userID and password) may suffice.
+- If Payments Are Introduced: If customers can make payments online, implement multi-factor authentication (MFA) to enhance security. This could include SMS verification or email confirmation for transactions.
+
+
+**For the Truck Drivers:**
+- Access Control: Drivers should have access to their schedules and package statuses. Implement MFA for drivers as well, especially since they handle sensitive information and packages. This could include biometric authentication (e.g., fingerprint or facial recognition) on their devices.
+
+
+**For Bill (Management):**
+- Access Control: Bill should have administrative access to all system features, including accounting and scheduling. Implement MFA for Bill as well, given the sensitive nature of the information he handles. Consider role-based access controls to limit what each user can see and do based on their role.
+
+
+**UserID and Password Sufficiency:**
+- Basic Users (Customers): For non-financial transactions, userID and password may be sufficient, but MFA is recommended if payments are involved.
+- Drivers and Management: For both drivers and Bill, typical userID and password are not sufficient due to the sensitive nature of their roles. MFA should be required to enhance security and reduce the risk of unauthorized access.
+
+
+**Conclusion**
+By understanding the potential fraud risks and implementing robust access controls, Bill can create a secure and reliable system for his courier services. This proactive approach will help protect the business from fraud while ensuring a smooth operation for customers and drivers alike.
+
+
+## References
+Bank, S. (n.d.). Beware: Courier scams are on the rise | Articles | Insights. https://contenthub.sasfin.com. https://contenthub.sasfin.com/insights/articles/beware-courier-scams-are-on-the-rise/ 
+
+Blog, I., & Blog, I. (2024, July 15). What are the most common types of food delivery scams and courier fraud? Incognia. https://www.incognia.com/the-authentication-reference/food-delivery-scams 
+
+Damaini, A. A., Nugroho, G. S., & Suyoto, S. (2018). Fraud Crime Mitigation of Mobile Application Users for Online Transportation. International Journal of Interactive Mobile Technologies (iJIM), 12(3), 153. https://doi.org/10.3991/ijim.v12i3.8070 
+
+Package Delivery Scams. (2023). American Bankers Association. https://www.aba.com/advocacy/community-programs/consumer-resources/protect-your-money/package-delivery-scams
